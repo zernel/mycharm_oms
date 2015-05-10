@@ -10,10 +10,10 @@
 			<%= link_to "Mycharm OMS", root_path, class: "navbar-brand" %>
 		</div>
 		<nav class="collapse navbar-collapse ks-navbar-collapse">
-      <%# if admin_signed_in? %>
-        <%#= link_to "Logout", destroy_admin_session_path, method: :delete, class: "btn btn-default navbar-btn navbar-right" %>
-        <p class="navbar-text navbar-right" style="margin-right:15px;">Signed in with Admin <%#= current_admin %></p>
-      <%# end %>
+      <% if admin_signed_in? %>
+        <%= link_to "Logout", destroy_admin_session_path, method: :delete, class: "btn btn-default navbar-btn navbar-right" %>
+        <p class="navbar-text navbar-right" style="margin-right:15px;">Signed in with Admin <%= current_admin %></p>
+      <% end %>
 		</nav>
 	</div>
 </header>

@@ -35,4 +35,13 @@ module ApplicationHelper
 		args[2][:class] ||= selected_tab?(tab, options) ? 'active' : nil
 		dropdown_nav(*args, &block)
 	end
+
+  def content_for_header(title, description=nil)
+		content_for :header do
+			content = content_tag(:h2, title)
+			content += content_tag(:p, description) if description
+			container = content_tag(:div, content, class: "container")
+			content_tag(:div, container, class: "ks-header")
+		end
+  end
 end

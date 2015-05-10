@@ -1,3 +1,5 @@
-<ul class="nav nav-tabs">
-  <%= tab_nav_link_to :dashboard, "Dashboard", root_path %>
-</ul>
+<% if admin_signed_in? %>
+  <ul class="nav nav-tabs custom-navtabs">
+    <%= tab_nav_link_to :dashboard, "Dashboard", root_path %>
+  </ul>
+<% end %>

@@ -1,0 +1,12 @@
+<%= content_for_header("Admin Login") %>
+
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form-horizontal col-md-5' }, wrapper: :horizontal_form, wrapper_mappings: { boolean: :horizontal_boolean }) do |f| %>
+  <%= f.input :username, required: true, autofocus: true %>
+  <%= f.input :password, required: true %>
+
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+      <%= f.button :submit, "Sign in", class: "btn-primary" %>
+    </div>
+  </div>
+<% end %>

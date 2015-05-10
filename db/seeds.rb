@@ -1,7 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+admin_data   = YAML::load( File.open("#{Rails.root}/db/seed/admins_data.yml") )
+if admin_data['admins']
+	admin_data['admins'].each_pair do |key, attributes|
+		next if Admin.find_by(username: attributes['username'])
+		Admin.create(attributes)
+	end
+end
