@@ -20,8 +20,8 @@
           <td><%= store.address %></td>
           <td><%= store.phone %></td>
           <td>
-            <%= link_to 'Edit', edit_store_path(store), class: "btn btn-xs btn-primary" %>
-            <%= link_to 'Delete', store, class: "btn btn-xs btn-danger", method: :delete, data: { confirm: '确定要删除这个门店吗？' } %>
+            <%= link_to '修改', edit_store_path(store), class: "btn btn-xs btn-primary" %>
+            <%= link_to '删除', store, class: "btn btn-xs btn-danger", method: :delete, data: { confirm: '确定要删除这个门店吗？' } %>
           </td>
         </tr>
       <% end %>
@@ -29,4 +29,4 @@
   </tbody>
 </table>
 
-<%= link_to '创建新门店', new_store_path, class: "btn btn-large btn-block btn-primary" %>
+<%= link_to '创建新门店', new_store_path, class: "btn btn-large btn-primary" %>
