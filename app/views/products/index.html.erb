@@ -1,0 +1,28 @@
+<table class="table table-bordered">
+  <thead>
+    <tr class="active">
+      <th>种类</th>
+      <th>商品名</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.group_by(&:category).each do |category, products| %>
+      <% products.each_with_index do |product, index| %>
+        <tr>
+          <% if index == 0 %>
+            <td rowspan="<%= products.count %>"><%= category %></td>
+          <% end %>
+          <td><strong><%= product.name %></strong></td>
+          <td>
+            <%= link_to '修改', edit_product_path(product), class: "btn btn-xs btn-primary" %>
+            <%= link_to '删除', product, class: "btn btn-xs btn-danger", method: :delete, data: { confirm: '确定要删除这个商品吗？' } %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to '创建新商品', new_product_path, class: "btn btn-large btn-primary" %>

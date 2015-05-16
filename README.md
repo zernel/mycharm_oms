@@ -25,15 +25,22 @@
   * takeout_time
   * takeout_store_id
   * shipping_address
+  * amount
   * note
 
 + OrderItem
-  belongs_to :variant
+  belongs_to :order
+  belongs_to :product
 
-  * name
+  * order_id
+  * product_id
   * pound
   * blessing
   * note
+
++ Product
+  * category
+  * name
 
 ## v0.1.0
 + Admin
