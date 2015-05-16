@@ -16,9 +16,12 @@ if stores_data['stores']
 	end
 end
 
-if products_data['products']
-	products_data['products'].each_pair do |key, attributes|
-		next if Product.find_by(name: attributes['name'])
-		Product.create(attributes)
+if products_data['categories']
+	products_data['categories'].each_pair do |key, attributes|
+		category = Category.find_by(name: attributes['name']) || Category.create(name: attributes['name'])
+    attributes['products'].each_pair do |key, attributes|
+      next if category.products.find_by(name: attributes['name'])
+      category.products.create(attributes)
+    end
 	end
 end

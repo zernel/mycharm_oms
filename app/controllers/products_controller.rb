@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :update, :destroy]
 
   def index
+    @categories = Category.all
     @products = Product.all
   end
 

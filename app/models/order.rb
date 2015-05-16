@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-  has_many :order_items
+  has_many :order_items, dependent: :destroy
   belongs_to :takeout_store, class_name: "Store", foreign_key: "takeout_store_id"
 
 	validates_presence_of :contact_name, :contact_phone

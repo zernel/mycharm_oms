@@ -1,31 +1,30 @@
-products:
+categories:
   1:
-    category: "蛋糕"
-    name: "草莓酸奶养颜蛋糕"
+    name: "蛋糕"
+    products:
+      1:
+        name: "草莓酸奶养颜蛋糕"
+      2:
+        name: "雪人茶曲"
+      3:
+        name: "抹抹清新"
+      4:
+        name: "相思抹茶"
+      5:
+        name: "情迷黑森林"
   2:
-    category: "蛋糕"
-    name: "雪人茶曲"
+    name: "饮品"
+    products:
+      1:
+        name: "摩卡"
+      2:
+        name: "美式咖啡"
+      3:
+        name: "绿茶多多"
   3:
-    category: "蛋糕"
-    name: "抹抹清新"
-  4:
-    category: "蛋糕"
-    name: "相思抹茶"
-  5:
-    category: "蛋糕"
-    name: "情迷黑森林"
-  7:
-    category: "饮品"
-    name: "摩卡"
-  8:
-    category: "饮品"
-    name: "美式咖啡"
-  9:
-    category: "饮品"
-    name: "绿茶多多"
-  10:
-    category: "面包"
-    name: "山药号角"
-  11:
-    category: "面包"
-    name: "麦麦轻芝士"
+    name: "面包"
+    products:
+      1:
+        name: "山药号角"
+      2:
+        name: "麦麦轻芝士"

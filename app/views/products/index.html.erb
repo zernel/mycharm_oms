@@ -1,3 +1,31 @@
+<h4>商品种类列表</h4>
+<table class="table table-bordered">
+  <thead>
+    <tr class="active">
+      <th>名称</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><strong><%= category.name %></strong></td>
+        <td>
+          <%= link_to '修改', edit_category_path(category), class: "btn btn-xs btn-primary" %>
+          <%= link_to '删除', category, class: "btn btn-xs btn-danger", method: :delete, data: { confirm: '确定要删除这个商品种类吗？' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="99"><%= link_to '创建新商品种类', new_category_path, class: "btn btn-large btn-primary" %></td>
+    </tr>
+  </tfoot>
+</table>
+
+<h4>商品列表</h4>
 <table class="table table-bordered">
   <thead>
     <tr class="active">
@@ -23,6 +51,9 @@
       <% end %>
     <% end %>
   </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="99"><%= link_to '创建新商品', new_product_path, class: "btn btn-large btn-primary" %></td>
+    </tr>
+  </tfoot>
 </table>
-
-<%= link_to '创建新商品', new_product_path, class: "btn btn-large btn-primary" %>
