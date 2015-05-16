@@ -1,23 +1,32 @@
 <table class="table table-bordered table-hover">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>所在城市</th>
+      <th>门店名</th>
+      <th>地址</th>
+      <th>联系电话</th>
       <th>&nbsp;</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @stores.each do |store| %>
-      <tr>
-        <td><%= store.name %></td>
-        <td>
-          <%= link_to 'Show', store, class: "btn btn-xs btn-default" %>
-          <%= link_to 'Edit', edit_store_path(store), class: "btn btn-xs btn-primary" %>
-          <%= link_to 'Delete', store, class: "btn btn-xs btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
-      </tr>
+    <% @stores.group_by(&:city).each do |city, stores| %>
+      <% stores.each_with_index do |store, index| %>
+        <tr>
+          <% if index == 0 %>
+            <td rowspan="<%= stores.count %>"><%= city %></td>
+          <% end %>
+          <td><%= store.name %></td>
+          <td><%= store.address %></td>
+          <td><%= store.phone %></td>
+          <td>
+            <%= link_to 'Edit', edit_store_path(store), class: "btn btn-xs btn-primary" %>
+            <%= link_to 'Delete', store, class: "btn btn-xs btn-danger", method: :delete, data: { confirm: '确定要删除这个门店吗？' } %>
+          </td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New Store', new_store_path, class: "btn btn-large btn-primary" %>
+<%= link_to '创建新门店', new_store_path, class: "btn btn-large btn-block btn-primary" %>

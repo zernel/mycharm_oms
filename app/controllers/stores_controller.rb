@@ -13,7 +13,7 @@ class StoresController < ApplicationController
     @store = Store.new(store_params)
 
     if @store.save
-      redirect_to stores_url, notice: 'Store was successfully created.'
+      redirect_to stores_url, notice: "#{@store} 创建成功。"
     else
       render :new
     end
@@ -21,7 +21,7 @@ class StoresController < ApplicationController
 
   def update
     if @store.update(store_params)
-      redirect_to stores_url, notice: 'Store was successfully updated.'
+      redirect_to stores_url, notice: "#{@store} 修改成功。"
     else
       render :edit
     end
@@ -29,7 +29,7 @@ class StoresController < ApplicationController
 
   def destroy
     @store.destroy
-    redirect_to stores_url, notice: 'Store was successfully destroyed.'
+    redirect_to stores_url, notice: "#{@store} 删除成功。"
   end
 
   private
@@ -38,6 +38,6 @@ class StoresController < ApplicationController
   end
 
   def store_params
-    params.require(:store).permit(:name)
+    params.require(:store).permit(:name, :city, :address, :phone)
   end
 end

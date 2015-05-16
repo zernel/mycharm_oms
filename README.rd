@@ -11,6 +11,9 @@
 
 + Store
   * name
+  * city
+  * address
+  * phone
 
 + Order
   has_many :order_items

@@ -2,10 +2,14 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
+    <%= f.input :city, label: "所在城市" %>
+    <%= f.input :name, label: "门店名" %>
+    <%= f.input :address, label: "地址" %>
+    <%= f.input :phone, label: "联系电话" %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, "提交表单", class: "btn-primary" %>
+    <%= link_to '返回门店列表', stores_path, class: "btn btn-default" %>
   </div>
 <% end %>
