@@ -19,8 +19,8 @@
   has_many :order_items
 
   * state
-  * name
-  * phone
+  * contact_name
+  * contact_phone
   * verification_code
   * takeout_time
   * takeout_store_id

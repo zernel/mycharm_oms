@@ -44,4 +44,15 @@ module ApplicationHelper
 			content_tag(:div, container, class: "ks-header")
 		end
   end
+
+  def link_to_add_fields(name, f, association, partial_prefix, opts={})
+    new_object = f.object.send(association).klass.new
+    id = new_object.object_id
+
+		fields = f.simple_fields_for(association, new_object, child_index: id, wrapper: :horizontal_form) do |builder|
+			render(partial_prefix.to_s + association.to_s.singularize + "_fields", f: builder)
+		end
+
+    link_to(name, '#', class: "add_fields btn btn-xs btn-primary #{opts[:klass]}", data: {id: id, fields: fields.gsub("\n", "")})
+  end
 end

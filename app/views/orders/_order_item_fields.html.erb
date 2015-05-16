@@ -1,0 +1,8 @@
+<fieldset class="well well-sm" style="<%= "display:none;" if f.object._destroy %>">
+  <%= f.hidden_field :_destroy %>
+	<%= f.association :product, label: "商品" %>
+	<%= f.input :pound, label: "磅数" %>
+	<%= f.input :blessing, label: "祝福语" %>
+	<%= f.input :note, label: "备注" %>
+  <%= link_to "删除订单项", '#', class: "remove_fields btn btn-xs btn-danger pull-right" %>
+</fieldset>

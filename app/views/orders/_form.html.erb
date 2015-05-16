@@ -1,0 +1,35 @@
+<%= simple_form_for @order , html: { class: 'form-horizontal order-form' }, wrapper: :horizontal_form do |f| %>
+  <h4>联系信息</h4>
+  <div class="well well-sm">
+    <%= f.input :contact_name, label: "姓名" %>
+    <%= f.input :contact_phone, label: "手机号码" %>
+  </div>
+
+  <h4>配送/提货信息</h4>
+  <div class="well well-sm">
+    <%= f.association :takeout_store, as: :grouped_select, group_method: :city, label: "取货门店" %>
+    <%#= f.input :takeout_store_id, label: "取货门店", as: :grouped_select, include_blank: true, collection: stores_group_by_city, group_method: :last, group_label_method: :first %>
+    
+    <%= f.input :takeout_time, label: "取货时间" %>
+
+    <%= f.input :shipping_address, label: "送货地址" %>
+  </div>
+
+  <h4>订单项</h4>
+  <%= f.simple_fields_for :order_items do |f| %>
+    <%= render "orders/order_item_fields", f: f %>
+  <% end %>
+  <%= link_to_add_fields "添加订单项", f, :order_items, "orders/" %>
+
+  <h4>其他信息</h4>
+  <div class="well well-sm">
+    <%= f.input :amount, label: "总额" %>
+    <%= f.input :note, label: "备注" %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.button :submit, "提交表单", class: 'btn-primary' %>
+    </div>
+  </div>
+<% end %>
