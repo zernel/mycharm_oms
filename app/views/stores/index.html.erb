@@ -1,9 +1,9 @@
-<table class="table table-bordered table-hover">
+<table class="table table-bordered">
   <thead>
-    <tr>
+    <tr class="active">
       <th>所在城市</th>
       <th>门店名</th>
-      <th>地址</th>
+      <th>门店地址</th>
       <th>联系电话</th>
       <th>&nbsp;</th>
     </tr>
@@ -16,7 +16,7 @@
           <% if index == 0 %>
             <td rowspan="<%= stores.count %>"><%= city %></td>
           <% end %>
-          <td><%= store.name %></td>
+          <td><strong><%= store.name %></strong></td>
           <td><%= store.address %></td>
           <td><%= store.phone %></td>
           <td>
