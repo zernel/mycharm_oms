@@ -1,0 +1,45 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <strong>订单<%= order.serial_number %></strong><small>( <%= order.human_state_name %> )</small>
+    <%= link_to glyphicon_tag("ok", "已处理"), handle_order_path(order), method: :patch, class: "btn btn-xs btn-success pull-right" %>
+  </div>
+  <div class="panel-body">
+    
+    <ul>
+      <li>创建时间: <%= l order.created_at, format: :short %></li>
+      <li>联系人: <%= order.contact_name %></li>
+      <li>联系电话: <%= order.contact_phone %></li>
+      <li>配送地址: <%= order.shipping_address %></li>
+      <li>取货门店: <%= order.takeout_store %></li>
+      <li>取货时间: <%= order.takeout_time %></li>
+      <li>备注: <%= order.note %></li>
+    </ul>
+  </div>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr class="active">
+        <th>商品</th>
+        <th>磅数</th>
+        <th>祝福语</th>
+        <th>备注</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% order.order_items.each do |item| %>
+        <tr>
+          <td><%= item.product %></td>
+          <td><%= item.pound %></td>
+          <td><%= item.blessing %></td>
+          <td><%= item.note %></td>
+        </tr>
+      <% end %>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td class="text-danger text-right" colspan="99"><strong><%= number_to_currency(order.amount, unit: "￥") %></strong></td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

@@ -23,8 +23,6 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'devise'
 gem 'simple_form', git: 'git://github.com/plataformatec/simple_form.git'
 
-gem 'state_machine'
-
 gem 'redcarpet' # parse Markdown
 gem "paperclip", "~> 4.2"
 

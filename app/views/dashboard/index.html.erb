@@ -1,0 +1,9 @@
+<p><%= link_to '创建新订单', new_order_path, class: "btn btn-large btn-block btn-default" %></p>
+
+<div class="row">
+  <% @unprocessed_orders.each do |order| %>
+    <div class="col-md-6">
+      <%= render "orders/order_panel", order: order %>
+    </div>
+  <% end %>
+</div>

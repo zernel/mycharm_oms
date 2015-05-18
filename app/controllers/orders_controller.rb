@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:show, :edit, :update, :destroy, :handle]
 
   def index
     @orders = Order.all
@@ -30,6 +30,11 @@ class OrdersController < ApplicationController
   def destroy
     @order.destroy
     redirect_to orders_url, notice: "订单#{@order} 删除成功。"
+  end
+
+  def handle
+    @order.handle
+    redirect_to orders_url, notice: "订单#{@order} 状态已更新为'已处理'。"
   end
 
   private

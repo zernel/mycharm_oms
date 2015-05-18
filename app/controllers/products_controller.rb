@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     if @product.save
-      redirect_to products_url, notice: "#{@product} 创建成功。"
+      redirect_to products_url, notice: "商品 #{@product} 创建成功。"
     else
       render :new
     end
@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      redirect_to products_url, notice: "#{@product} 修改成功。"
+      redirect_to products_url, notice: "商品 #{@product} 修改成功。"
     else
       render :edit
     end
@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    redirect_to products_url, notice: "#{@product} 删除成功。"
+    redirect_to products_url, notice: "商品 #{@product} 删除成功。"
   end
 
   private
@@ -39,6 +39,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :category)
+    params.require(:product).permit(:name, :category_id)
   end
 end

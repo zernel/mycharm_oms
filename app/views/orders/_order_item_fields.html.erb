@@ -1,6 +1,6 @@
 <fieldset class="well well-sm" style="<%= "display:none;" if f.object._destroy %>">
   <%= f.hidden_field :_destroy %>
-	<%= f.association :product, label: "商品" %>
+  <%= f.input :product_id, label: "商品", collection: Category.all, as: :grouped_select, group_method: :products %>
 	<%= f.input :pound, label: "磅数" %>
 	<%= f.input :blessing, label: "祝福语" %>
 	<%= f.input :note, label: "备注" %>
