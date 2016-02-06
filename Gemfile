@@ -1,6 +1,7 @@
-source 'https://rubygems.org'
+source 'https://ruby.taobao.org'
+#source 'https://rubygems.org'
 
-gem 'rails', '4.2.5'
+gem 'rails', '4.2.5.1'
 gem 'sqlite3'
 gem 'mysql2'
 gem 'thin'
